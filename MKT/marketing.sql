@@ -42,7 +42,8 @@ id_anuncio NUMERIC constraint fk_ad_fisico_anuncio
                    references anuncio(id_anuncio),
 fecha_inicio DATE,
 fecha_termino DATE,
-ubicacion VARCHAR(50));
+ubicacion VARCHAR(50))
+INHERITS(anuncio);
 
 
 
@@ -52,12 +53,14 @@ id_anuncio NUMERIC constraint fk_ad_fisico_anuncio
 fecha_inicio DATE,
 fecha_termini DATE,
 tipo VARCHAR(50),
-url VARCHAR(100));
+url VARCHAR(100))
+INHERITS(anuncio);
 
 
 CREATE TABLE ad_broadcast (
 id_anuncio NUMERIC constraint fk_ad_fisico_anuncio 
                    references anuncio(id_anuncio),
 fecha_hora DATE,
-broadcast_channel VARCHAR(30));
+broadcast_channel VARCHAR(30))
+INHERITS(anuncio);
 
