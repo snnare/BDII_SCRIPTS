@@ -2,7 +2,7 @@ CREATE TABLE PAGO_RENTA(
 id_renta INT PRIMARY KEY NOT NULL,
 fecha_inicio DATE NOT NULL,
 fecha_termino DATE NOT NULL,
-costo INT NOT NULL);
+costo NUMERIC(6,2) NOT NULL);
 
 CREATE TABLE BODEGA(
 bodega_id INT PRIMARY KEY NOT NULL,
@@ -16,7 +16,7 @@ bodega_id INT NOT NULL,
 fecha_contratacion DATE NOT NULL,
 fecha_termino DATE NOT NULL,
 provedor VARCHAR(50) NOT NULL,
-deposito INT NOT NULL);
+deposito NUMERIC(6,2) NOT NULL);
 
 ALTER TABLE RENTA
 add constraint FK_RENTA_bodega_id
