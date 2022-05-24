@@ -442,6 +442,41 @@ CREATE TABLE IF NOT EXISTS solicitud
 	FOREIGN KEY (manufactura_id) REFERENCES manufactura(id_manufactura)
 );
 
+
+
+CREATE TABLE IF NOT EXISTS sobrante
+(
+	producto_id 		INTEGER 	NOT NULL,
+	manufactura_id 		INTEGER 	NOT NULL,
+	cantidad 			INTEGER		NOT NULL,
+
+	PRIMARY KEY (producto_id, manufactura_id),
+	FOREIGN KEY (producto_id) REFERENCES producto(id_producto),
+	FOREIGN KEY (manufactura_id) REFERENCES manufactura(id_manufactura)
+);
+
+-------- --------- VENTAS
+
+CREATE TABLE cliente(
+	genero    INTEGER,
+	PRIMARY KEY (rfc) 
+) INHERITS (persona);
+
+
+
+CREATE TABLE venta(
+	manufactura_id       INTEGER 		NOT NULL,
+	cliente_id           VARCHAR(13) 	NOT NULL,    
+	rfc                  VARCHAR(13) 	NOT NULL,
+	empleado_id          INTEGER 		NOT NULL,
+	fecha                DATE 			NOT NULL,
+
+	PRIMARY KEY (manufactura_id) , 
+	FOREIGN KEY (rfc, empleado_id) REFERENCES empleado (rfc , id_empleado),
+	FOREIGN KEY (cliente_id) REFERENCES cliente (rfc)
+) ;
+
+
 ----------------- FINANZAS
 CREATE TABLE FACTURA (
 	folio_factura 		SERIAL 		NOT NULL,
