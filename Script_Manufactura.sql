@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS solicitud
 (
 	id_solicitud 		INTEGER 	NOT NULL,
 	id_producto 		INTEGER 	NOT NULL,
-	fecha 				  DATE,
-	cantidad 			  INTEGER,
-	id_manufactura 	INTEGER 	NOT NULL,
+	fecha 			DATE,
+	cantidad 		INTEGER,
+	id_manufactura 		INTEGER 	NOT NULL,
 
 	PRIMARY KEY (id_solicitud),
 	FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
@@ -33,13 +33,13 @@ CREATE TABLE IF NOT EXISTS manufactura
 (
 	id_manufactura 		INTEGER 	NOT NULL, 
 	id_direccion 		INTEGER		NOT NULL,
-	tipo 				INTEGER,
+	tipo 			INTEGER,
 	fecha_inicio 		DATE		NOT NULL,
 	fecha_termino 		DATE,
 	id_outsourcing 		INTEGER 	NOT NULL,
-	costo_obra 			DECIMAL,
+	costo_obra 		DECIMAL,
 	costo_total 		DECIMAL, 
-	status 				INTEGER,
+	status 			INTEGER,
 
 	PRIMARY KEY (id_manufactura),
 	FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion),
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS sobrante
 (
 	id_producto 		INTEGER 	NOT NULL,
 	id_manufactura 		INTEGER 	NOT NULL,
-	cantidad 			INTEGER,
+	cantidad 		INTEGER,
 
 	PRIMARY KEY (id_producto, id_manufactura),
 	FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
@@ -64,9 +64,9 @@ CREATE TABLE IF NOT EXISTS sobrante
 CREATE TABLE IF NOT EXISTS outsourcing
 (
 	id_outsourcing 		INTEGER 	NOT NULL,
-	empresa 			VARCHAR(50), 
-	costo 				DECIMAL 	NOT NULL,
-	contrato 			PATH, "/Documentos/contrato0234.pdf"
+	empresa 		VARCHAR(50), 
+	costo 			NUMERIC 	NOT NULL,
+	contrato 		PATH, "/Documentos/contrato0234.pdf"
 
 	PRIMARY KEY(id_outsourcing)
 );
@@ -79,11 +79,11 @@ CREATE TABLE IF NOT EXISTS mantenimiento
 (
 	id_mantenimiento 	INTEGER 	NOT NULL,
 	id_manufactura 		INTEGER 	NOT NULL, 
-	id_defecto 			INTEGER,
+	id_defecto 		INTEGER,
 	fecha_inicio 		DATE,
 	fecha_termino 		DATE,
-	costo 				DECIMAL,
-	status 				INTEGER,
+	costo 			DECIMAL,
+	status 			INTEGER,
 
 	PRIMARY KEY (id_mantenimiento),
 	FOREIGN KEY (id_manufactura) REFERENCES manufactura(id_manufactura),
@@ -99,8 +99,8 @@ CREATE TABLE IF NOT EXISTS mantenimiento
 
 CREATE TABLE IF NOT EXISTS defecto
 (
-	id_defecto 			INTEGER 	NOT NULL,
-	tipo 				INTEGER,
+	id_defecto 		INTEGER 	NOT NULL,
+	tipo 			INTEGER,
 	descripcion 		TEXT,
 
 	PRIMARY KEY (id_defecto)
