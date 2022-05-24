@@ -5,7 +5,7 @@ CREATE DATABASE BDII_PROYECTO;
 \c bdii_proyecto
 
 CREATE TABLE direccion(
-	id_direccion			SERIAL,
+	id_direccion			SERIAL NOT NULL,
 	cp						VARCHAR(5)  NOT NULL,
 	entidad_federativa		VARCHAR(30) NOT NULL, 
 	localidad				VARCHAR(40) NOT NULL,
