@@ -7,7 +7,7 @@ tipo VARCHAR(30));
 
 CREATE TABLE promocion_man (
 promocion_man_id NUMERIC constraint pk_promocion_man PRIMARY KEY,
-manufactura_id "tipo dato" constraint fk_manufactura_promocion_man
+manufactura_id INTEGER constraint fk_manufactura_promocion_man
                            references manufactura(id_manufactura),
 id_promocion NUMERIC constraint fk_promocion_promocion_man
                            references promocion(id_promocion),                         
