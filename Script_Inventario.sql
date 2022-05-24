@@ -1,48 +1,54 @@
 CREATE TABLE PAGO_RENTA(
-id_renta INT PRIMARY KEY NOT NULL,
-fecha_inicio DATE NOT NULL,
-fecha_termino DATE NOT NULL,
-costo NUMERIC(6,2) NOT NULL
+id_renta            SERIAL          NOT NULL,
+fecha_inicio        DATE            NOT NULL,
+fecha_termino       DATE            NOT NULL,
+costo               NUMERIC(6,2)    NOT NULL,
+PRIMARY KEY (id_renta, fecha_inicio)    
 );
 
+
 CREATE TABLE BODEGA(
-bodega_id INT PRIMARY KEY NOT NULL,
-tamanio VARCHAR(50) NOT NULL, 100,000 m^2
-capacidad VARCHAR(50) NOT NULL,
-direccion VARCHAR(50) NOT NULL);
+bodega_id       SERIAL        PRIMARY KEY,
+tamanio         VARCHAR(20)   NOT NULL,
+capacidad       VARCHAR(20)   NOT NULL,
+direccion_id    SERIAL        NOT NULL)
+FOREIGN KEY (direccion_id) REFERENCES direccion(id_direccion);
+
 
 CREATE TABLE RENTA(
-id_renta INT PRIMARY KEY NOT NULL,
-bodega_id INT NOT NULL,
-fecha_contratacion DATE NOT NULL,
-fecha_termino DATE NOT NULL,
-provedor VARCHAR(50) NOT NULL,
-deposito NUMERIC(6,2) NOT NULL);
+id_renta            SERIAL PRIMARY KEY      NOT NULL,
+bodega_id           SERIAL                  NOT NULL,
+fecha_contratacion  DATE                    NOT NULL,
+fecha_termino       DATE                    NOT NULL,
+provedor            VARCHAR(50)             NOT NULL,
+deposito            NUMERIC(6,2)            NOT NULL);
 
 ALTER TABLE RENTA
 add constraint FK_RENTA_bodega_id
 foreign key (bodega_id)
 references BODEGA(bodega_id);
 
+
 CREATE TABLE MOV_SALIDA(
-id_mov_salida INT PRIMARY KEY NOT NULL,
-fecha_hora_envio DATE NOT NULL,
-fecha_hora_recepcion DATE NOT NULL,
-manufactura_id INT NOT NULL);
+id_mov_salida       SERIAL PRIMARY KEY  NOT NULL,
+fecha_envio         DATE                NOT NULL,
+fecha_recepcion     DATE                NOT NULL,
+id_manufactura      INT                 NOT NULL);
 
 -- NOTA IMPORTANTE: para hacer este alter table necesitamos la tabla de manufactura creada antes
--- ya que hcaemos uso de la llave foranea  
+-- ya que hcaemos uso de la llave foranea 
+
 ALTER TABLE MOV_SALIDA
-add constraint FK_MOV_SALIDA_manufactura_id
-foreign key (manufactura_id)
-references MANUFACTURA(manufactura_id);
+add constraint FK_MOV_SALIDA_id_manufactura
+foreign key (id_manufactura)
+references manufactura(id_manufactura);
 
 CREATE TABLE INVENTARIO(
-producto_pedido_id INT NOT NULL,
-bodega_id INT NOT NULL,
-fecha_hora_entrada DATE NOT NULL,
-fecha_hora_salida DATE NOT NULL,
-id_mov_salida INT NOT NULL
+producto_pedido_id  INT     NOT NULL,
+bodega_id           INT     NOT NULL,
+fecha_entrada       DATE    NOT NULL,
+fecha_salida        DATE    NOT NULL,
+id_mov_salida       SERIAL  NOT NULL,
     PRIMARY KEY(producto_pedido_id),
     FOREIGN KEY(producto_pedido_id) REFERENCES producto_pedido(id_producto_pedido)
 
