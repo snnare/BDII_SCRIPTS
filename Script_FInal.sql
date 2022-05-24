@@ -482,8 +482,70 @@ CREATE TABLE FACTURA (
 	folio_factura 		SERIAL 		NOT NULL,
 	fecha_emision 		DATE 		NOT NULL,
 	lugar_emision 		VARCHAR(50) NOT NULL,
-	venta_id 			INTEGER 	NOT NULL REFERENCES VENTA(manufactura_id)
+	venta_id 			INTEGER 	NOT NULL REFERENCES VENTA(manufactura_id),
 
 	PRIMARY KEY (folio_factura),
-	FOREIGN KEY (venta_id) references venta (manufactura_id)
+	FOREIGN KEY (venta_id) REFERENCES venta (manufactura_id)
 );
+
+
+------ CONTROL INVENTARIOS
+
+CREATE TABLE PAGO_RENTA(
+    id_renta            SERIAL          NOT NULL,
+    fecha_inicio        DATE            NOT NULL,
+    fecha_termino       DATE            NOT NULL,
+    costo               NUMERIC(6,2)    NOT NULL,
+    PRIMARY KEY (id_renta, fecha_inicio)    
+);
+
+
+CREATE TABLE BODEGA(
+    id_bodega       SERIAL        NOT NULL,
+    tamanio         VARCHAR(20)   NOT NULL,
+    capacidad       VARCHAR(20)   NOT NULL,
+    direccion_id    SERIAL        NOT NULL,
+
+    PRIMARY KEY (id_bodega),
+    FOREIGN KEY (direccion_id) REFERENCES direccion(id_direccion)
+);
+
+
+CREATE TABLE RENTA(
+    id_renta            SERIAL                  NOT NULL,
+    bodega_id           SERIAL                  NOT NULL,
+    fecha_contratacion  DATE                    NOT NULL,
+    fecha_termino       DATE                    NOT NULL,
+    provedor            VARCHAR(50)             NOT NULL,
+    deposito            NUMERIC(6,2)            NOT NULL,
+    
+    PRIMARY KEY (id_renta),
+    FOREIGN KEY (bodega_id) REFERENCES bodega (id_bodega)
+    
+    );
+
+
+CREATE TABLE MOV_SALIDA(
+    id_mov_salida       	 SERIAL 		 NOT NULL,
+    fecha_hora_envio         TIMESTAMP       NOT NULL,
+    fecha_hora_recepcion     TIMESTAMP       NOT NULL,
+    manufactura_id      	 INTEGER         NOT NULL,
+	
+	 PRIMARY KEY(id_mov_salida),
+	 FOREIGN KEY(manufactura_id) REFERENCES manufactura (id_manufactura)
+);
+
+
+CREATE TABLE INVENTARIO(
+	producto_pedido_id  	 INT     	  NOT NULL,
+	bodega_id           	 INT     	  NOT NULL,
+	fecha_hora_entrada       TIMESTAMP    NOT NULL,
+	fecha_hora_salida        TIMESTAMP    NOT NULL,
+	mov_salida_id      		 SERIAL 	  NOT NULL,
+	
+    PRIMARY KEY(producto_pedido_id),
+    FOREIGN KEY(producto_pedido_id) REFERENCES producto_pedido(id_producto_pedido),
+	FOREIGN KEY (bodega_id) REFERENCES bodega (id_bodega),
+	FOREIGN KEY (mov_salida_id) REFERENCES mov_salida (id_mov_salida)
+);
+
