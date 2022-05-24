@@ -39,6 +39,15 @@ CREATE TABLE pedido (
 
 
 
+CREATE TABLE producto(
+	id_producto 		SERIAL			NOT NULL,
+	nombre 				VARCHAR(50) 	NOT NULL,
+	descripcion 		TEXT 			NOT NULL,
+	unidad 				INTEGER 		NOT NULL,
+	
+	PRIMARY KEY (id_producto)
+);
+
 CREATE TABLE producto_pedido(
 	id_producto_pedido 		SERIAL 			NOT NULL,
 	producto_id 			SERIAL 			NOT NULL,
@@ -50,12 +59,3 @@ CREATE TABLE producto_pedido(
     FOREIGN KEY (pedido_id) 	REFERENCES pedido(id_pedido)
 );
 
-
-CREATE TABLE producto(
-	id_producto 		SERIAL		NOT NULL,
-	nombre 		VARCHAR(50) NOT NULL,
-	descripcion 	VARCHAR(80) NOT NULL,
-	unidad 		INTEGER NOT NULL,
-	
-	PRIMARY KEY (id_producto)
-);
