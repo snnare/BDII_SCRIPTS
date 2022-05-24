@@ -50,3 +50,13 @@ CREATE TABLE producto_pedido(
 	FOREIGN KEY (producto_id) REFERENCES producto(id_producto),
       FOREIGN KEY (pedidio_id) REFERENCES pedido(id_pedido)
 );
+
+
+CREATE TABLE producto(
+	id_producto 	SERIAL,
+	nombre 		VARCHAR(50) NOT NULL,
+	descripcion 	VARCHAR(80) NOT NULL,
+	unidad 		INTEGER NOT NULL,
+	
+	PRIMARY KEY (id_producto)
+);
