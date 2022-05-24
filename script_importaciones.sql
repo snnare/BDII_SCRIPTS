@@ -2,7 +2,7 @@
 
 CREATE TABLE proveedor(
 	id_proveedor			SERIAL,
-	nombre				VARCHAR(50) NOT NULL,
+	nombre					VARCHAR(50) NOT NULL,
 	nacionalidad			VARCHAR(30) NOT NULL,
 	info_contacto			TEXT NOT NULL,
 

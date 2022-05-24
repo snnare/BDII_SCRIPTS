@@ -2,11 +2,12 @@ CREATE TABLE PAGO_RENTA(
 id_renta INT PRIMARY KEY NOT NULL,
 fecha_inicio DATE NOT NULL,
 fecha_termino DATE NOT NULL,
-costo NUMERIC(6,2) NOT NULL);
+costo NUMERIC(6,2) NOT NULL
+);
 
 CREATE TABLE BODEGA(
 bodega_id INT PRIMARY KEY NOT NULL,
-tamanio VARCHAR(50) NOT NULL,
+tamanio VARCHAR(50) NOT NULL, 100,000 m^2
 capacidad VARCHAR(50) NOT NULL,
 direccion VARCHAR(50) NOT NULL);
 
@@ -41,7 +42,11 @@ producto_pedido_id INT NOT NULL,
 bodega_id INT NOT NULL,
 fecha_hora_entrada DATE NOT NULL,
 fecha_hora_salida DATE NOT NULL,
-id_mov_salida INT NOT NULL);
+id_mov_salida INT NOT NULL
+    PRIMARY KEY(producto_pedido_id),
+    FOREIGN KEY(producto_pedido_id) REFERENCES producto_pedido(id_producto_pedido)
+
+);
 
 ALTER TABLE INVENTARIO
 add constraint FK_INVENTARIO_id_mov_salida

@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS outsourcing
 	id_outsourcing 		INTEGER 	NOT NULL,
 	empresa 			VARCHAR(50), 
 	costo 				DECIMAL 	NOT NULL,
-	contrato 			PATH,
+	contrato 			PATH, "/Documentos/contrato0234.pdf"
 
 	PRIMARY KEY(id_outsourcing)
 );
