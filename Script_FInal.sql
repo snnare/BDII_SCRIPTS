@@ -615,4 +615,18 @@ broadcast_channel VARCHAR(30),
 PRIMARY KEY (id_anuncio))
 INHERITS(anuncio);
 
+------------------------USUARIOS
+CREATE TABLE usuariosclientes (
+rfc VARCHAR(13) primary key not null,
+contrasenia VARCHAR(50) not null
+);
 
+CREATE TABLE usuariosempleados (
+rfc VARCHAR(13) primary key not null,
+contrasenia VARCHAR(50) not null
+);
+
+CREATE TABLE usuariosadmin (
+rfc VARCHAR(13) primary key not null,
+contrasenia VARCHAR(50) not null
+);
