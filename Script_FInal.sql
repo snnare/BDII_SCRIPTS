@@ -1,4 +1,3 @@
-
 --------------------------- RH
 CREATE TABLE direccion(
 	id_direccion			SERIAL NOT NULL,
@@ -120,7 +119,7 @@ CREATE TABLE curso(
 	descripcion    		TEXT     	NOT NULL,
 	duracion_horas		INTEGER  	NOT NULL,
 	rfc					VARCHAR(13) NOT NULL,
-	empleado_id			INTEGER	 NOT NULL,
+	empleado_id			INTEGER	 	NOT NULL,
 
 	PRIMARY KEY (id_curso),
 	FOREIGN KEY (rfc, empleado_id) REFERENCES empleado(rfc, id_empleado)
@@ -315,7 +314,7 @@ CREATE TABLE proveedor(
 	id_proveedor		SERIAL 		NOT NULL,
 	nombre				VARCHAR(50) NOT NULL,
 	nacionalidad		VARCHAR(30) NOT NULL,
-	info_contacto		TEXT NOT NULL,
+	info_contacto		TEXT 		NOT NULL,
 
 	PRIMARY KEY (id_proveedor)
 );
@@ -551,82 +550,100 @@ CREATE TABLE INVENTARIO(
 
 ------------- MARKETING
 
+
+
 CREATE TABLE promocion (
-id_promocion INTEGER constraint pk_promocion PRIMARY KEY NOT NULL,
-nombre VARCHAR(50) NOT NULL,
-descripcion TEXT NOT NULL,
-tipo VARCHAR(30) NOT NULL);
+	id_promocion 	INTEGER 		 	NOT NULL,
+	nombre 			VARCHAR(50) 		NOT NULL,
+	descripcion  	TEXT 				NOT NULL,
+	tipo 			VARCHAR(30) 		NOT NULL,
+
+	PRIMARY KEY(id_promocion)
+);
 
 
 CREATE TABLE promocion_man (
-promocion_man_id INTEGER constraint pk_promocion_man PRIMARY KEY NOT NULL,
-manufactura_id   INTEGER constraint fk_manufactura_promocion_man
-                           references manufactura(id_manufactura) NOT NULL,  					                          
-fecha_inicio DATE NOT NULL,
-fecha_termino DATE NOT NULL,
-descuento NUMERIC);
+	promocion_man_id 		INTEGER  	NOT NULL,
+	manufactura_id   		INTEGER  	NOT NULL,  					                          
+	fecha_inicio 			DATE 		NOT NULL,
+	fecha_termino			DATE 		NOT NULL,
+	descuento 				NUMERIC		NOT NULL,
 
+	PRIMARY KEY (promocion_man_id, manufactura_id),
+	FOREIGN KEY (promocion_id) REFERENCES promocion (id_promocion),
+	FOREIGN KEY (manufactura_id) REFERENCES manufactura (id_manufactura)
+	
+);
 
 CREATE TABLE campania (
-id_campania INTEGER constraint pk_campania PRIMARY KEY NOT NULL,
-fecha_inicio DATE NOT NULL,
-fecha_termino DATE NOT NULL,
-audiencia VARCHAR(30) NOT NULL,
-region VARCHAR(30) NOT NULL,
-promocion_id INTEGER constraint fk_campania_promocion_man
-                                    references promocion(id_promocion));
+	id_campania 		INTEGER 	NOT NULL,
+	fecha_inicio 		DATE 		NOT NULL,
+	fecha_termino 		DATE 		NOT NULL,
+	audiencia 			VARCHAR(30) NOT NULL,
+	region 				VARCHAR(30) NOT NULL,
+	promocion_id 		INTEGER 	NOT NULL,
+	
+	PRIMARY KEY(id_campania),
+	FOREIGN KEY (promocion_id) REFERENCES promocion (id_promocion)
+	);
 
 
 CREATE TABLE anuncio (
-id_anuncio INTEGER constraint pk_anuncio PRIMARY KEY NOT NULL,
-campania_id INTEGER constraint fk_anuncio_campania
-                               references campania(id_campania) NOT NULL,
-contacto VARCHAR(50) NOT NULL,
-proveedor VARCHAR(50) NOT NULL,
-costo NUMERIC(20,2)NOT NULL,
-promocion_man_id INTEGER constraint fk_anuncio_promocion_man
-                         references promocion_man(promocion_man_id) NOT NULL);
+	campania_id 		INTEGER  		NOT NULL,
+	contacto 			VARCHAR(50) 	NOT NULL,
+	proveedor 			VARCHAR(50) 	NOT NULL,
+	costo 				NUMERIC(20,2)	NOT NULL,
+	promocion_man_id 	INTEGER 		NOT NULL,
+	
+	PRIMARY KEY (id_anuncio),
+	FOREIGN KEY (campania_id) REFERENCES campania (id_campania),
+	FOREIGN KEY (promocion_man_id) REFERENCES promocion_man (promocion_man_id) NOT NULL
+	);
 
 
 CREATE TABLE ad_fisico (
-fecha_inicio DATE NOT NULL,
-fecha_termino DATE NOT NULL,
-ubicacion VARCHAR(50),
-PRIMARY KEY (id_anuncio)
+	fecha_inicio 	DATE 		NOT NULL,
+	fecha_termino 	DATE 		NOT NULL,
+	ubicacion 		VARCHAR(50),
+	PRIMARY KEY (id_anuncio)
 )INHERITS(anuncio);
 
 
 
 CREATE TABLE ad_web (
-fecha_inicio DATE NOT NULL,
-fecha_termini DATE NOT NULL,
-tipo VARCHAR(50)  NOT NULL ,
-url VARCHAR(100)  NOT NULL, 
-PRIMARY KEY (id_anuncio)
-)
-INHERITS(anuncio);
+	fecha_inicio 	DATE NOT NULL,
+	fecha_termini	DATE 		NOT NULL,
+	tipo 			VARCHAR(50)  NOT NULL ,
+	url 			VARCHAR(100)  NOT NULL, 
+	PRIMARY KEY (id_anuncio)
+)INHERITS(anuncio);
 
 
 CREATE TABLE ad_broadcast (
+	fecha_hora 			DATE   NOT NULL,
+	broadcast_channel 	VARCHAR(30),
 
-fecha_hora DATE   NOT NULL,
-broadcast_channel VARCHAR(30),
-
-PRIMARY KEY (id_anuncio))
-INHERITS(anuncio);
+	PRIMARY KEY (id_anuncio)
+)INHERITS(anuncio);
 
 ------------------------USUARIOS
 CREATE TABLE usuariosclientes (
-rfc VARCHAR(13) primary key not null,
-contrasenia VARCHAR(50) not null
+|	rfc 			VARCHAR(13) NOT NULL,
+|	contrasenia 	VARCHAR(50) NOT NULL,
+
+	PRIMARY KEY (rfc)
 );
 
 CREATE TABLE usuariosempleados (
-rfc VARCHAR(13) primary key not null,
-contrasenia VARCHAR(50) not null
+	rfc 			VARCHAR(13) NOT NULL,
+	contrasenia 	VARCHAR(50) NOT NULL,
+
+	PRIMARY KEY (rfc)
 );
 
 CREATE TABLE usuariosadmin (
-rfc VARCHAR(13) primary key not null,
-contrasenia VARCHAR(50) not null
+	rfc 			VARCHAR(13) not null,
+	contrasenia 	VARCHAR(50) not null,
+
+	PRIMARY KEY (rfc)
 );
