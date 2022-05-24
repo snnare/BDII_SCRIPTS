@@ -30,9 +30,9 @@ CREATE TABLE pedido (
 	total 			NUMERIC(6,2) NOT NULL,
 
     PRIMARY KEY (id_pedido),
-    FOREIGN KEY (proveedor_id) 		REFERENCES proveedor(id_proveedor),
-    FOREIGN KEY (importacion_id) 	REFERENCES importacion(id_importacion),
-    FOREIGN KEY (empleado_id) 		REFERENCES empleado(id_empleado)
+    FOREIGN KEY (PROVEEDOR_proveedor_id) 	REFERENCES proveedor(id_proveedor),
+    FOREIGN KEY (IMPORTACION_importacion_id) 	REFERENCES importacion(id_importacion),
+    FOREIGN KEY (EMPLEADO_empleado_id) 		REFERENCES empleado(id_empleado)
 
 );
 
@@ -45,8 +45,8 @@ CREATE TABLE producto_pedido(
 	costo   	NUMERIC(6,2) NOT NULL,
 
 	PRIMARY KEY (id_producto),
-	FOREIGN KEY (producto_id) 	REFERENCES producto(id_producto),
-      FOREIGN KEY (pedidio_id) 		REFERENCES pedido(id_pedido)
+	FOREIGN KEY (PRODUCTO_producto_id) 	REFERENCES producto(id_producto),
+      	FOREIGN KEY (PEDIDO_pedidio_id) 	REFERENCES pedido(id_pedido)
 );
 
 
