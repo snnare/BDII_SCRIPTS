@@ -308,6 +308,17 @@ CREATE TABLE  viaje (
     FOREIGN KEY (rfc, empleado_id) REFERENCES empleado (rfc, id_empleado)
 );
 
+CREATE TABLE viaje_emp(
+	viaje_id			SERIAL 			NOT NULL,
+	rfc					VARCHAR(13)		NOT NULL,
+	empleado_id			INTEGER			NOT NULL,
+
+	PRIMARY KEY (viaje_id, rfc, empleado_id),
+	FOREIGN KEY (viaje_id) REFERENCES viaje(id_viaje),
+	FOREIGN KEY (rfc, empleado_id) REFERENCES empleado (rfc, id_empleado)
+);
+
+
 --------------------------- IMPORTACIONES
 
 CREATE TABLE proveedor(
