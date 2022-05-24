@@ -197,7 +197,7 @@ CREATE TABLE oficina(
 
 	PRIMARY KEY(id_oficina),
 	FOREIGN KEY(departamento_id) REFERENCES departamento(id_departamento),
-	FOREIGN KEY(departamento_id) REFERENCES direccion(id_direccion)
+	FOREIGN KEY(direccion_id) REFERENCES direccion(id_direccion)
 );
 
 CREATE TABLE acceso(
