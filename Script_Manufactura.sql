@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS solicitud
 (
 	id_solicitud 		INTEGER 	NOT NULL,
 	id_producto 		INTEGER 	NOT NULL,
-	fecha 			DATE,
+	fecha 			DATE		NOT NULL,
 	cantidad 		INTEGER,
 	id_manufactura 		INTEGER 	NOT NULL,
 
