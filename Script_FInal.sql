@@ -549,3 +549,70 @@ CREATE TABLE INVENTARIO(
 	FOREIGN KEY (mov_salida_id) REFERENCES mov_salida (id_mov_salida)
 );
 
+------------- MARKETING
+
+CREATE TABLE promocion (
+id_promocion INTEGER constraint pk_promocion PRIMARY KEY NOT NULL,
+nombre VARCHAR(50) NOT NULL,
+descripcion TEXT NOT NULL,
+tipo VARCHAR(30) NOT NULL);
+
+
+CREATE TABLE promocion_man (
+promocion_man_id INTEGER constraint pk_promocion_man PRIMARY KEY NOT NULL,
+manufactura_id   INTEGER constraint fk_manufactura_promocion_man
+                           references manufactura(id_manufactura) NOT NULL,  					                          
+fecha_inicio DATE NOT NULL,
+fecha_termino DATE NOT NULL,
+descuento NUMERIC);
+
+
+CREATE TABLE campania (
+id_campania INTEGER constraint pk_campania PRIMARY KEY NOT NULL,
+fecha_inicio DATE NOT NULL,
+fecha_termino DATE NOT NULL,
+audiencia VARCHAR(30) NOT NULL,
+region VARCHAR(30) NOT NULL,
+promocion_id INTEGER constraint fk_campania_promocion_man
+                                    references promocion(id_promocion));
+
+
+CREATE TABLE anuncio (
+id_anuncio INTEGER constraint pk_anuncio PRIMARY KEY NOT NULL,
+campania_id INTEGER constraint fk_anuncio_campania
+                               references campania(id_campania) NOT NULL,
+contacto VARCHAR(50) NOT NULL,
+proveedor VARCHAR(50) NOT NULL,
+costo NUMERIC(20,2)NOT NULL,
+promocion_man_id INTEGER constraint fk_anuncio_promocion_man
+                         references promocion_man(promocion_man_id) NOT NULL);
+
+
+CREATE TABLE ad_fisico (
+fecha_inicio DATE NOT NULL,
+fecha_termino DATE NOT NULL,
+ubicacion VARCHAR(50),
+PRIMARY KEY (id_anuncio)
+)INHERITS(anuncio);
+
+
+
+CREATE TABLE ad_web (
+fecha_inicio DATE NOT NULL,
+fecha_termini DATE NOT NULL,
+tipo VARCHAR(50)  NOT NULL ,
+url VARCHAR(100)  NOT NULL, 
+PRIMARY KEY (id_anuncio)
+)
+INHERITS(anuncio);
+
+
+CREATE TABLE ad_broadcast (
+
+fecha_hora DATE   NOT NULL,
+broadcast_channel VARCHAR(30),
+
+PRIMARY KEY (id_anuncio))
+INHERITS(anuncio);
+
+
