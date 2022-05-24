@@ -40,8 +40,8 @@ CREATE TABLE pedido (
 
 CREATE TABLE producto_pedido(
 	id_producto 	SERIAL,
-	producto_id 	SERIAL,
-	pedido_id	SERIAL,
+	producto_id 	SERIAL NOT NULL,
+	pedido_id	SERIAL NOT NULL,
 	costo   	NUMERIC(6,2) NOT NULL,
 
 	PRIMARY KEY (id_producto),
