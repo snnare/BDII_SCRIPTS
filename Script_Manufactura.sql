@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS manufactura
 	fecha_inicio 		DATE		NOT NULL,
 	fecha_termino 		DATE,
 	id_outsourcing 		INTEGER 	NOT NULL,
-	costo_obra 		DECIMAL,
-	costo_total 		DECIMAL, 
+	costo_obra 		NUMERIC,
+	costo_total 		NUMERIC, 
 	status 			INTEGER,
 
 	PRIMARY KEY (id_manufactura),
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS mantenimiento
 	id_defecto 		INTEGER,
 	fecha_inicio 		DATE,
 	fecha_termino 		DATE,
-	costo 			DECIMAL,
+	costo 			NUMERIC,
 	status 			INTEGER,
 
 	PRIMARY KEY (id_mantenimiento),
