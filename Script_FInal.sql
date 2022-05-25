@@ -589,11 +589,11 @@ CREATE TABLE campania (
 	fecha_termino 		DATE 		NOT NULL,
 	audiencia 			VARCHAR(30) NOT NULL,
 	region 				VARCHAR(30) NOT NULL,
-	promocion_id 		INTEGER 	NOT NULL,
+	--promocion_id 		INTEGER 	NOT NULL,
 	
-	PRIMARY KEY(id_campania),
-	FOREIGN KEY (promocion_id) REFERENCES promocion (id_promocion)
-	);
+	PRIMARY KEY(id_campania)
+	--FOREIGN KEY (promocion_id) REFERENCES promocion (id_promocion)
+);
 
 
 CREATE TABLE anuncio (
@@ -606,7 +606,7 @@ CREATE TABLE anuncio (
 	
 	PRIMARY KEY (id_anuncio),
 	FOREIGN KEY (campania_id) REFERENCES campania (id_campania),
-	FOREIGN KEY (promocion_man_id) REFERENCES promocion_man (promocion_man_id)
+	FOREIGN KEY (promocion_man_id) REFERENCES promocion_man (promocion_id, manufactura_id)
 	);
 
 
