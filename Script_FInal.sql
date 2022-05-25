@@ -560,9 +560,6 @@ CREATE TABLE INVENTARIO(
 );
 
 ------------- MARKETING
-
-
-
 CREATE TABLE promocion (
 	id_promocion 	INTEGER 		 	NOT NULL,
 	nombre 			VARCHAR(50) 		NOT NULL,
@@ -574,13 +571,13 @@ CREATE TABLE promocion (
 
 
 CREATE TABLE promocion_man (
-	promocion_man_id 		INTEGER  	NOT NULL,
+	promocion_id 			INTEGER  	NOT NULL,
 	manufactura_id   		INTEGER  	NOT NULL,  					                          
 	fecha_inicio 			DATE 		NOT NULL,
 	fecha_termino			DATE 		NOT NULL,
 	descuento 				NUMERIC		NOT NULL,
 
-	PRIMARY KEY (promocion_man_id, manufactura_id),
+	PRIMARY KEY (promocion_id, manufactura_id),
 	FOREIGN KEY (promocion_id) REFERENCES promocion (id_promocion),
 	FOREIGN KEY (manufactura_id) REFERENCES manufactura (id_manufactura)
 	
@@ -600,6 +597,7 @@ CREATE TABLE campania (
 
 
 CREATE TABLE anuncio (
+	id_anuncio			INTEGER			NOT NULL,
 	campania_id 		INTEGER  		NOT NULL,
 	contacto 			VARCHAR(50) 	NOT NULL,
 	proveedor 			VARCHAR(50) 	NOT NULL,
@@ -608,24 +606,24 @@ CREATE TABLE anuncio (
 	
 	PRIMARY KEY (id_anuncio),
 	FOREIGN KEY (campania_id) REFERENCES campania (id_campania),
-	FOREIGN KEY (promocion_man_id) REFERENCES promocion_man (promocion_man_id) NOT NULL
+	FOREIGN KEY (promocion_man_id) REFERENCES promocion_man (promocion_man_id)
 	);
 
 
 CREATE TABLE ad_fisico (
 	fecha_inicio 	DATE 		NOT NULL,
 	fecha_termino 	DATE 		NOT NULL,
-	ubicacion 		VARCHAR(50),
+	ubicacion 		VARCHAR(50) NOT NULL,
 	PRIMARY KEY (id_anuncio)
 )INHERITS(anuncio);
 
 
 
 CREATE TABLE ad_web (
-	fecha_inicio 	DATE NOT NULL,
-	fecha_termini	DATE 		NOT NULL,
-	tipo 			VARCHAR(50)  NOT NULL ,
-	url 			VARCHAR(100)  NOT NULL, 
+	fecha_inicio 	DATE 			NOT NULL,
+	fecha_termino	DATE 			NOT NULL,
+	tipo 			VARCHAR(50)  	NOT NULL ,
+	url 			VARCHAR(100)  	NOT NULL, 
 	PRIMARY KEY (id_anuncio)
 )INHERITS(anuncio);
 
