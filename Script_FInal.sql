@@ -602,11 +602,12 @@ CREATE TABLE anuncio (
 	contacto 			VARCHAR(50) 	NOT NULL,
 	proveedor 			VARCHAR(50) 	NOT NULL,
 	costo 				NUMERIC(20,2)	NOT NULL,
-	promocion_man_id 	INTEGER 		NOT NULL,
+	promocion_id 		INTEGER 		NOT NULL,
+	manufactura_id		INTEGER			NOT NULL,
 	
 	PRIMARY KEY (id_anuncio),
 	FOREIGN KEY (campania_id) REFERENCES campania (id_campania),
-	FOREIGN KEY (promocion_man_id) REFERENCES promocion_man (promocion_id, manufactura_id)
+	FOREIGN KEY (promocion_id, manufactura_id) REFERENCES promocion_man (promocion_id, manufactura_id)
 	);
 
 
