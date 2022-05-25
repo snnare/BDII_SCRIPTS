@@ -637,6 +637,13 @@ CREATE TABLE ad_broadcast (
 )INHERITS(anuncio);
 
 ------------------------USUARIOS
+CREATE TABLE usuario(
+	tipo			VARCHAR(20) 		NOT NULL,
+	contrasenia		VARCHAR(20)			NOT NULL,
+
+	PRIMARY KEY(rfc, id_empleado)
+) INHERITS(empleado);
+
 CREATE TABLE usuariosclientes (
 |	rfc 			VARCHAR(13) NOT NULL,
 |	contrasenia 	VARCHAR(50) NOT NULL,
