@@ -51,7 +51,6 @@ SHOW TIMEZONE
 SET TIMEZONE = 'America/Mexico_City'
 
 
-INSERT INTO turno VALUES (1, '7:00:25-07','14:00:25-07')
-INSERT INTO turno VALUES (2,,,);
-INSERT INTO turno VALUES (2,,,);
-INSERT INTO turno VALUES (3,,,);
+INSERT INTO turno VALUES (1, '7:00:25-07','14:00:25-07');   -- Matutino     8 horas
+INSERT INTO turno VALUES (2,'14:00:25-07','21:00:25-07');   -- Vespertino   7 horas
+INSERT INTO turno VALUES (3,'16:30:25-07','23:30:25-07');  -- Mixto        7 horas y media
