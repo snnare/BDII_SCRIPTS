@@ -5,7 +5,8 @@ INSERT INTO departamento VALUES (3, 'Ventas','Está cargo de la identificaciónd
 INSERT INTO departamento VALUES (4, 'Finanzas','Encargado de la movilización y administración de los recursos financieros del banco, correspondientes tanto al activo como el pasivo de la organización, incluyendofondos provenientes del endeudamiento y de otra índole, la administración de la liquides de la institución, la contabilidad y los registros financieros de sus operaciones, el manejo de las relaciones del banco con los mercados y los agentes financieros.');
 INSERT INTO departamento VALUES (5, 'Importaciones', 'El encargado de contar con la mercancía en tiempo y forma de acuerdo con las necesidades de la empresa en territorio nacional y internacional');
 INSERT INTO departamento VALUES (6, 'Control de Inventarios','Garantizar el abasto suficiente de los artículos y productos recurrentes,');
-INSERT INTO departamento VALUES (7, 'Manufactura','unción principal la transformación de insumos o recursos (energía, materia prima, mano de obra, capital, información) en productos finales (bienes o servicios)');
+INSERT INTO departamento VALUES (7, 'Manufactura','Función principal la transformación de insumos o recursos (energía, materia prima, mano de obra, capital, información) en productos finales (bienes o servicios)');
+INSERT INTO departamento VALUES (8, 'Marketing','Es el responsable de satisfacer las necesidades del cliente, lo que tiene un impacto directo en la obtención de ganancias. ');
 
 
 ----------- CARGO
@@ -19,21 +20,29 @@ INSERT INTO cargo VALUES (6,'Técnico de Formación y Desarrollo', 'Encargado de
 
 
 --- Transporte
-INSERT INTO cargo VALUES (3,'Chofer','');
-INSERT INTO cargo VALUES (4,'Auxiliar','');
+INSERT INTO cargo VALUES (7,'Jefe de Departamento TP','Gestiona las rutas, horarios',2) --- Opcional
+INSERT INTO cargo VALUES (8,'Chofer','Encargado de ir al mando del vehículo en el que los empleados se transporten.',2);
+
 
 --- Ventas
 
 --- Finanzas
 
 --- Importaciones
+INSERT INTO cargo VALUES (n , 'Proveedor')
 
 --- Control de Inventarios
 
 
 --- Manufactura
 
-INSERT INTO cargo VALUES (5,'Obrero','');
+--- Marketing
+INSERT INTO cargo VALUES (n, 'Jefe de Departamento MKT','Gestiona el departamento de Marketing',8); -- Opcional
+INSERT INTO cargo VALUES (n, 'Jefe de Campaña','Encargado de planear Campañas de marketing',8);
+INSERT INTO cargo VALUES (n, 'Titular de Promociones','Encargado de planear promociones en conjunto con analista y jefe de campaña',8);
+INSERT INTO cargo VALUES (n, 'Analista','Encargado de analizar informacion del mercado para trabajar en conjunto con el titular de promociones y el jefe de campañas para la planeacion de campañas de marketing',8);
+
+
 
 
 
