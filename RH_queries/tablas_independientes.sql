@@ -69,14 +69,6 @@ INSERT INTO prestacion VALUES (17, 'Fondo de ahorro', 'ley superior', 'Descuento
 INSERT INTO prestacion VALUES (18, 'Bonos de productividad', 'bono', 'Remuneración adicional recibida por el trabajador cuando alcanza o supera las metas de desempeño establecidas por la organización, como parte de su plan de crecimiento.' );
 INSERT INTO prestacion VALUES (19, 'Bonos de puntualidad', 'bono', 'Se otorgarán para incentivar a los trabajadores a ser más puntuales. ' );
 
-
-
-
-
-
-
-
-
 ----------- TURNO
 --- Esto solo en caso de que el servidor este configurado en otra region
 SHOW TIMEZONE
