@@ -74,8 +74,8 @@ CREATE TABLE prestacion(
 	nombre 			VARCHAR(40)	 NOT NULL,
 	tipo			VARCHAR(30)  NOT NULL,
 	descripcion		TEXT		 NOT NULL,
-	duracion 		VARCHAR(20)  NOT NULL,
-	monto  			NUMERIC(10,2) NOT NULL,
+	duracion 		INTEGER              ,
+	monto  			NUMERIC(10,2)        ,
 
 	PRIMARY KEY(id_prestacion)
 );
@@ -85,7 +85,7 @@ CREATE TABLE prestacion_emp(
 	empleado_id		INTEGER 	NOT NULL,
 	prestacion_id	INTEGER 	NOT NULL,
 	fecha_inicio    DATE    	NOT NULL,
-	fecha_corte     DATE,
+	fecha_termino   DATE,
 
 	PRIMARY KEY (rfc, empleado_id, prestacion_id, fecha_inicio),
 	FOREIGN KEY(rfc, empleado_id) REFERENCES empleado(rfc, id_empleado),
