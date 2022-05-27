@@ -10,12 +10,12 @@ INSERT INTO departamento VALUES (7, 'Manufactura','unción principal la transfor
 
 ----------- CARGO
 --- RH
-INSERT INTO cargo VALUES (1,'Jefe de Departamento','',1);
-INSERT INTO cargo VALUES (2,'Capturista de Datos','',1);
-INSERT INTO cargo VALUES (3,'Administrador de Presonal','',1);
-INSERT INTO cargo VALUES (4,'Técnico/a de RRHH','Un técnico/a de Recursos Humanos tiene la función de detectar las necesidades del cliente interno, publicar las ofertas de empleo, gestionar estas ofertas y realizar una búsqueda directa. También deberá hacer las entrevistas, gestión de la incorporación de nuevos candidatos y medidas para retener el talento.',1);
+INSERT INTO cargo VALUES (1,'Jefe de Departamento','Encargado de gestionar y coordinar a los equipos y personas de RRHH. Analizar y gestionar el cuadro de mando de Recursos Humanos.',1);
+INSERT INTO cargo VALUES (2,'Capturista de Datos','Encargados de llevar a cabo registros de las actividades realizadas por los empleados y los distintos departamentos de una empresa u organización. Además digitalizan la información que sea requerida.',1);
+INSERT INTO cargo VALUES (3,'Responsable de administracion de Presonal','Supervisar todos los procesos administrativos y de comunicación del personal, además de implementar las políticas de retribución e incentivos y administrar el pago de obligaciones y previsiones tributarias.',1);
+INSERT INTO cargo VALUES (4,'Técnico de selección de personal','Encargado de detectar las necesidades del cliente interno, publicar las ofertas de empleo, gestionar estas ofertas y realizar una búsqueda directa. También deberá hacer las entrevistas, gestión de la incorporación de nuevos candidatos y medidas para retener el talento.',1);
 INSERT INTO cargo VALUES (5,'Responsable de Formación y Desarrollo','El rol del responsable en formación y desarrollo consiste en detectar las necesidades de formación para cada departamento o área de la empresa y diseñar un plan de formación para empleados para satisfacer esas necesidades.',1);
-INSERT INTO cargo VALUES (6,'Técnico/a de Formación y Desarrollo', 'Encargado de aplicar la formación de los empleados mediante capacitaciones, evaluaciones, cursos , etc.');
+INSERT INTO cargo VALUES (6,'Técnico de Formación y Desarrollo', 'Encargado de aplicar la formación de los empleados mediante capacitaciones, evaluaciones, cursos , etc.');
 
 
 --- Transporte
