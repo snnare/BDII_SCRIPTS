@@ -43,3 +43,15 @@ INSERT INTO cargo VALUES (5,'Obrero','');
 INSERT INTO prestacion VALUES (1, 'vacaciones','ley','disfrutar en forma continua 6 días de vacaciones, por lo menos.', '2021/03/18', 650.30 )
 INSERT INTO prestacion VALUES (2, 'aguinaldo', 'ley', 'un aguinaldo anual que deberá pagarse antes del día 20 de diciembre, equivalente a quince días de salario, por lo menos.','2021/03/18', )
 INSERT INTO prestacion VALUES (id_prestacion, nombre, tipo , descripcion, duracion, monto)
+
+
+----------- TURNO
+--- Esto solo en caso de que el servidor este configurado en otra region
+SHOW TIMEZONE
+SET TIMEZONE = 'America/Mexico_City'
+
+
+INSERT INTO turno VALUES (1, '7:00:25-07','14:00:25-07')
+INSERT INTO turno VALUES (2,,,);
+INSERT INTO turno VALUES (2,,,);
+INSERT INTO turno VALUES (3,,,);
