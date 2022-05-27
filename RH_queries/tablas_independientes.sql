@@ -7,8 +7,37 @@ INSERT INTO departamento VALUES (5, 'Importaciones', 'El encargado de contar con
 INSERT INTO departamento VALUES (6, 'Control de Inventarios','Garantizar el abasto suficiente de los artículos y productos recurrentes,');
 INSERT INTO departamento VALUES (7, 'Manufactura','unción principal la transformación de insumos o recursos (energía, materia prima, mano de obra, capital, información) en productos finales (bienes o servicios)');
 
------------ PRESTACIONES
 
+----------- CARGO
+--- RH
+INSERT INTO cargo VALUES (1,'Jefe de Departamento','',1);
+INSERT INTO cargo VALUES (2,'Capturista de Datos','',1);
+INSERT INTO cargo VALUES (3,'Administrador de Presonal','',1);
+INSERT INTO cargo VALUES (4,'Técnico/a de RRHH','Un técnico/a de Recursos Humanos tiene la función de detectar las necesidades del cliente interno, publicar las ofertas de empleo, gestionar estas ofertas y realizar una búsqueda directa. También deberá hacer las entrevistas, gestión de la incorporación de nuevos candidatos y medidas para retener el talento.',1);
+INSERT INTO cargo VALUES (5,'Responsable de Formación y Desarrollo','El rol del responsable en formación y desarrollo consiste en detectar las necesidades de formación para cada departamento o área de la empresa y diseñar un plan de formación para empleados para satisfacer esas necesidades.',1);
+INSERT INTO cargo VALUES (6,'Técnico/a de Formación y Desarrollo', 'Encargado de aplicar la formación de los empleados mediante capacitaciones, evaluaciones, cursos , etc.');
+
+
+--- Transporte
+INSERT INTO cargo VALUES (3,'Chofer','');
+INSERT INTO cargo VALUES (4,'Auxiliar','');
+
+--- Ventas
+
+--- Finanzas
+
+--- Importaciones
+
+--- Control de Inventarios
+
+
+--- Manufactura
+
+INSERT INTO cargo VALUES (5,'Obrero','');
+
+
+
+----------- PRESTACIONES
 --- LEY
 --- Checar si cambiar "duracion" de DATE a VARCHAR
 INSERT INTO prestacion VALUES (1, 'vacaciones','ley','disfrutar en forma continua 6 días de vacaciones, por lo menos.', '2021/03/18', 650.30 )
