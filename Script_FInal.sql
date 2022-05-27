@@ -48,9 +48,9 @@ CREATE TABLE nomina(
 	empleado_id 	INTEGER 	 NOT NULL,
 	fecha_inicio	DATE 		 NOT NULL,
 	fecha_corte		DATE    	 NOT NULL,
-	salario_bruto   NUMERIC(6,2) NOT NULL,
+	salario_bruto   NUMERIC(10,2) NOT NULL,
 	isr				NUMERIC(3,2) NOT NULL,
-	salario_neto	NUMERIC(6,2) NOT NULL,
+	salario_neto	NUMERIC(10,2) NOT NULL,
 
 	PRIMARY KEY (id_nomina),
 	FOREIGN KEY (rfc, empleado_id) REFERENCES empleado(rfc, id_empleado)
@@ -75,7 +75,7 @@ CREATE TABLE prestacion(
 	tipo			VARCHAR(30)  NOT NULL,
 	descripcion		TEXT		 NOT NULL,
 	duracion 		VARCHAR(20)  NOT NULL,
-	monto  			NUMERIC(6,2) NOT NULL,
+	monto  			NUMERIC(10,2) NOT NULL,
 
 	PRIMARY KEY(id_prestacion)
 );
@@ -182,7 +182,7 @@ CREATE TABLE contrato(
 CREATE TABLE salario(
 	id_salario			SERIAL			NOT NULL, -- Poner restricciones , revisar
 	fecha_inicio		DATE 			NOT NULL,
-	salario_base		NUMERIC(6,2)	NOT NULL,
+	salario_base		NUMERIC(10,2)	NOT NULL,
 
 	PRIMARY KEY(id_salario)
 );
@@ -297,10 +297,10 @@ CREATE TABLE  viaje (
     ruta_id                     SERIAL          NOT NULL,
     rfc                         VARCHAR(13)     NOT NULL,
     empleado_id                 INTEGER         NOT NULL,
-    kilometraje_inicial         NUMERIC(5,2)    NOT NULL,
-    kilometraje_final           NUMERIC(5,2)    NOT NULL,   
+    kilometraje_inicial         NUMERIC(10,2)    NOT NULL,
+    kilometraje_final           NUMERIC(10,2)    NOT NULL,   
     fecha_hora_salida           TIMESTAMP       NOT NULL,
-    viaticos                    NUMERIC(5,2)    NOT NULL,
+    viaticos                    NUMERIC(10,2)    NOT NULL,
 
     PRIMARY KEY(id_viaje),
     FOREIGN KEY (autobus_id) REFERENCES autobus  (placas),
@@ -333,9 +333,9 @@ CREATE TABLE proveedor(
 
 CREATE TABLE importacion (
 	id_importacion		SERIAL		 NOT NULL,
-	cuota_arancelaria	NUMERIC(6,2) NOT NULL,
+	cuota_arancelaria	NUMERIC(10,2) NOT NULL,
 	fecha_recepcion		DATE 		 NOT NULL,
-	total      			NUMERIC(6,2) NOT NULL,
+	total      			NUMERIC(10,2) NOT NULL,
 
 	PRIMARY KEY (id_importacion)
 );
@@ -349,7 +349,7 @@ CREATE TABLE pedido (
 	empleado_id 		INTEGER	 	NOT NULL,
 	fecha_pedido		DATE	 	NOT NULL,
 	fecha_recepcion		DATE	 	NOT NULL,
-	total 				NUMERIC(6,2)NOT NULL,
+	total 				NUMERIC(10,2)NOT NULL,
 
     PRIMARY KEY (id_pedido),
     FOREIGN KEY (proveedor_id) 		REFERENCES proveedor(id_proveedor),
@@ -373,7 +373,7 @@ CREATE TABLE producto_pedido(
 	id_producto_pedido 		SERIAL 			NOT NULL,
 	producto_id 			SERIAL 			NOT NULL,
 	pedido_id				SERIAL 			NOT NULL,
-	costo   				NUMERIC(6,2) 	NOT NULL,
+	costo   				NUMERIC(10,2) 	NOT NULL,
 
 	PRIMARY KEY (id_producto_pedido),
 	FOREIGN KEY (producto_id) 	REFERENCES producto(id_producto),
@@ -505,7 +505,7 @@ CREATE TABLE PAGO_RENTA(
     id_renta            SERIAL          NOT NULL,
     fecha_inicio        DATE            NOT NULL,
     fecha_termino       DATE            NOT NULL,
-    costo               NUMERIC(6,2)    NOT NULL,
+    costo               NUMERIC(10,2)    NOT NULL,
     PRIMARY KEY (id_renta, fecha_inicio)    
 );
 
@@ -527,7 +527,7 @@ CREATE TABLE RENTA(
     fecha_contratacion  DATE                    NOT NULL,
     fecha_termino       DATE                    NOT NULL,
     provedor            VARCHAR(50)             NOT NULL,
-    deposito            NUMERIC(6,2)            NOT NULL,
+    deposito            NUMERIC(10,2)            NOT NULL,
     
     PRIMARY KEY (id_renta),
     FOREIGN KEY (bodega_id) REFERENCES bodega (id_bodega)
