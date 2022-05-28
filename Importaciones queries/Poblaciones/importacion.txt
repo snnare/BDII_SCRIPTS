@@ -1,0 +1,10 @@
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (1,02,'13/05/2022',77939);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (2,89338,'25/10/2021',65037);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (3,3,'25/09/2021',3734);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (4,40405,'24/05/2021',13645);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (5,71988,'30/8/2021',24144);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (6,70,'2/2/2022',60476);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (7,20,'19/8/2020',49237);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (8,8909,'30/03/2020',7354);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (9,91359,'30/12/2021',67650);
+INSERT INTO importacion(id_importacion,cuota_arancelaria,fecha_recepcion, total) VALUES (10,72074,'23/11/2021',57808);
