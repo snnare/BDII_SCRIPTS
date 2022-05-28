@@ -30,12 +30,12 @@ CREATE TABLE persona (
 
 CREATE TABLE empleado (
 	id_empleado			INTEGER 	NOT NULL,
-	cuenta_bancaria 	INTEGER 	NOT NULL,
+	cuenta_bancaria 	VARCHAR(16) 	NOT NULL,
 	nss					VARCHAR(11) NOT NULL,
 	fecha_nacimiento	DATE 		NOT NULL,
 	cv					VARCHAR(40) NOT NULL, -- PATH donde se encuentra el archivo
 	email_trabajo		VARCHAR(50) NOT NULL,
-	licencia 			INTEGER,
+	licencia 			VARCHAR(20),
     
     PRIMARY KEY (rfc, id_empleado)
 )INHERITS (persona);
