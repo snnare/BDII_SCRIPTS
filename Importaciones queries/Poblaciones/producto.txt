@@ -1,0 +1,11 @@
+
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("1","Latón", "descripcion","47");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("2","Granito","descripcion","100");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("3","Madera","descripcion","34");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("4","Acero","descripcion","18");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("5","Latón","descripcion","11");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("6","Granito","descripcion","58");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("7","Caucho","descripcion","9");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("8","Acero","descripcion","11");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("9","Granito","descripcion","34");
+INSER INTO producto(id_producto,nombre,descripcion, unidad) VALUES ("10","Aluminio","descripcion","10");
