@@ -1,0 +1,12 @@
+INSERT INTO proveedor VALUES('MARBLE AND GRANITES ST','India',8296349024);
+
+INSERT INTO proveedor VALUES('Ideal Stone Pty Ltd','Australia',82979088);
+
+INSERT INTO proveedor VALUES('Elegant Tiles','Estados Unidos','ventas@eleganttiles.com.mx');
+
+INSERT INTO proveedor VALUES('City Ceramics','Australia','admin@cityceramics.com.au');
+
+INSERT INTO proveedor VALUES('Norwalk Concrete Industries','Estados Unidos',4196688167);
+
+INSERT INTO proveedor VALUES('Cementos Cruz','España','cementoscruz@cementoscruz.com')
+
